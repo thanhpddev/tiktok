@@ -4,6 +4,7 @@ import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-s
 import Tippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 
+import Button from '~/components/Button';
 import { Wrapper as PoperWrapper } from '~/components/Poper';
 import AccountItem from '~/components/AccountItem';
 import images from '~/assets/images';
@@ -17,7 +18,7 @@ function Header() {
 
     useEffect(() => {
         setTimeout(() => {
-            setSearchResult([1, 2, 3]);
+            setSearchResult([]);
         }, 0);
     }, []);
 
@@ -34,11 +35,7 @@ function Header() {
                         <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                             <PoperWrapper>
                                 <h4 className={cx('search-title')}>Account</h4>
-                                <div>
-                                    <AccountItem />
-                                    <AccountItem />
-                                    <AccountItem />
-                                </div>
+                                <AccountItem />
                             </PoperWrapper>
                         </div>
                     )}
@@ -54,7 +51,10 @@ function Header() {
                         </button>
                     </div>
                 </Tippy>
-                <div className={cx('action')}></div>
+                <div className={cx('action')}>
+                    <Button text>Upload</Button>
+                    <Button primary>Log in</Button>
+                </div>
             </div>
         </header>
     );
